@@ -22,10 +22,10 @@ class Text(View):
         tmp = ''
         num_lines = 0
         for idx, line in enumerate(data.split('\n')):
-            tmp += f'<text y="{24 * idx + 24}" fill="red">{line}</text>\n'
+            tmp += f'<text y="{24 * idx + 20}" fill="red">{line}</text>\n'
             num_lines += 1
 
-        height = height or (24 * num_lines + 24)
+        height = height or (24 * num_lines + 5)
         self.svg_context = f'''<svg width="{width}px" height="{height}px" xmlns="http://www.w3.org/2000/svg" fill="{color}">
 {tmp}</svg>'''
 
@@ -35,8 +35,11 @@ class Bar(View):
         super().__init__()
         num_data = len(data)
 
-        v_scale = height // max(data) - 1
         h_scale = (width // num_data // 3) // 3 * 3
+        # if height is None, try to make h_scale*2 == v_scale
+        height = height or (h_scale * 2 + 1) * max(data)
+        v_scale = height // max(data) - 1
+
         path = f'M0 {height}'
 
         for idx, val in enumerate(data):
