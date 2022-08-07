@@ -5,7 +5,7 @@ text = '''test
 换行
 plot2svg is light'''
 
-view = Text(width=500, height=300, color="black", data=text)
+view = Text(width=500, height=300, color="red", data=text)
 svg_context = view.get_svg_context()
 print(svg_context)
 view.save_svg('data_text.svg')

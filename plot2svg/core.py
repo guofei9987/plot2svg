@@ -20,9 +20,12 @@ class Text(View):
     def __init__(self, width, height, color, data):
         super().__init__()
         tmp = ''
+        num_lines = 0
         for idx, line in enumerate(data.split('\n')):
             tmp += f'<text y="{24 * idx + 24}" fill="red">{line}</text>\n'
+            num_lines += 1
 
+        height = height or (24 * num_lines + 24)
         self.svg_context = f'''<svg width="{width}px" height="{height}px" xmlns="http://www.w3.org/2000/svg" fill="{color}">
 {tmp}</svg>'''
 

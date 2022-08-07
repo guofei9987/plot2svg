@@ -1,4 +1,4 @@
-<svg width="500px" height="300px" xmlns="http://www.w3.org/2000/svg" fill="black">
+<svg width="500px" height="96px" xmlns="http://www.w3.org/2000/svg" fill="black">
 <text y="24" fill="red">test</text>
 <text y="48" fill="red">测试</text>
 <text y="72" fill="red">换行</text>
